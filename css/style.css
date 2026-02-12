@@ -229,6 +229,23 @@ main {
   box-shadow: var(--shadow-lg);
 }
 
+/* Ripple Effect Styles */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
 /* Section Styles */
 .section-title {
   text-align: center;
@@ -542,5 +559,214 @@ main {
   
   .value-card {
     flex: 1 1 100%;
+  }
+}
+
+/* Menu Page Styles */
+.menu-section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-section h1 {
+  text-align: center;
+  color: var(--color-primary-brown);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Menu Filter Buttons */
+.menu-filters {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  background-color: white;
+  color: var(--color-dark-text);
+  border: 2px solid var(--color-primary-brown);
+  transition: all var(--transition-normal);
+}
+
+.filter-btn:hover {
+  background-color: var(--color-primary-brown);
+  color: var(--color-cream);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background-color: var(--color-primary-brown);
+  color: var(--color-cream);
+}
+
+/* Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+/* Responsive Design - Menu Page */
+@media (max-width: 1024px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .menu-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-btn {
+    width: 100%;
+  }
+}
+
+/* Contact Page Styles */
+.contact-section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: var(--color-cream);
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+/* Contact Form Styles */
+.contact-form-wrapper h1 {
+  color: var(--color-primary-brown);
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-form {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: var(--color-dark-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-dark-text);
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-soft-green);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error-message {
+  display: none;
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+}
+
+.contact-form .btn {
+  width: 100%;
+  margin-top: var(--spacing-sm);
+}
+
+/* Contact Information Styles */
+.contact-info-wrapper h2 {
+  color: var(--color-primary-brown);
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-info {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.info-content h3 {
+  color: var(--color-primary-brown);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.info-content p {
+  color: var(--color-dark-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Map Container Styles */
+.map-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
+/* Responsive Design - Contact Page */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 }
