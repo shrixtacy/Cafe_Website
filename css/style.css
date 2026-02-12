@@ -1,3 +1,11 @@
+/* ========================================
+   SIMPLE CAFÉ WEBSITE - MAIN STYLESHEET
+   ======================================== */
+
+/* ========================================
+   CSS RESET & BASE STYLES
+   ======================================== */
+
 /* CSS Reset */
 * {
   margin: 0;
@@ -5,6 +13,7 @@
   box-sizing: border-box;
 }
 
+/* Smooth scrolling for anchor links and page navigation */
 html {
   scroll-behavior: smooth;
 }
@@ -35,42 +44,48 @@ button {
   font-family: inherit;
 }
 
-/* Custom Properties - Design System */
+/* ========================================
+   DESIGN SYSTEM - CUSTOM PROPERTIES
+   ======================================== */
+
 :root {
-  /* Colors */
-  --color-primary-brown: #5a3a1b;
-  --color-cream: #f7f2ed;
-  --color-soft-green: #6f8f72;
-  --color-dark-text: #2b2b2b;
+  /* Colors - Design System Palette */
+  --color-primary-brown: #5a3a1b;    /* Primary Brown - navbar, headings, primary elements */
+  --color-cream: #f7f2ed;            /* Cream/Off-white - backgrounds */
+  --color-soft-green: #6f8f72;       /* Soft Green - accents, hover states */
+  --color-dark-text: #2b2b2b;        /* Dark Text - body text */
   
-  /* Typography */
+  /* Typography - Google Fonts */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 3rem;
-  --spacing-xl: 4rem;
+  /* Spacing Scale - Consistent spacing throughout */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 1rem;     /* 16px */
+  --spacing-md: 2rem;     /* 32px */
+  --spacing-lg: 3rem;     /* 48px */
+  --spacing-xl: 4rem;     /* 64px */
   
-  /* Border Radius */
+  /* Border Radius - Rounded corners */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   
-  /* Shadows */
+  /* Shadows - Depth and elevation */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
   
-  /* Transitions */
+  /* Transitions - Smooth animations */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.6s ease;
 }
 
-/* Base Typography */
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
 body {
   font-family: var(--font-body);
   color: var(--color-dark-text);
@@ -81,6 +96,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
+  color: var(--color-primary-brown);
 }
 
 h1 {
@@ -97,9 +113,30 @@ h3 {
 
 p {
   margin-bottom: var(--spacing-sm);
+  line-height: 1.6;
 }
 
-/* Navigation Styles - Will be enhanced in Task 2 */
+/* ========================================
+   LAYOUT COMPONENTS
+   ======================================== */
+
+/* Container - Max width wrapper for content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Main Content - Offset for fixed navbar */
+main {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px - 200px);
+}
+/* ========================================
+   NAVIGATION COMPONENT
+   ======================================== */
+
+/* Fixed Navigation Bar */
 .navbar {
   position: fixed;
   top: 0;
@@ -108,6 +145,7 @@ p {
   background-color: var(--color-primary-brown);
   z-index: 1000;
   padding: var(--spacing-sm) 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-container {
@@ -135,12 +173,14 @@ p {
   color: var(--color-cream);
   font-weight: 500;
   transition: color var(--transition-fast);
+  padding: var(--spacing-xs) var(--spacing-sm);
 }
 
 .nav-links a:hover {
   color: var(--color-soft-green);
 }
 
+/* Hamburger Menu Icon (Mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -155,6 +195,7 @@ p {
   transition: all var(--transition-normal);
 }
 
+/* Hamburger Animation - Transform to X */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -167,11 +208,54 @@ p {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Main Content */
-main {
-  margin-top: 80px;
-  min-height: calc(100vh - 80px - 200px);
+/* ========================================
+   BUTTON COMPONENTS
+   ======================================== */
+
+/* Base Button Styles */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
+
+/* Primary Button - Gradient styling */
+.btn-primary {
+  background: var(--color-primary-brown);
+  background: linear-gradient(135deg, var(--color-primary-brown) 0%, var(--color-soft-green) 100%);
+  color: var(--color-cream);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ripple Effect Animation */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   HOME PAGE COMPONENTS
+   ======================================== */
 
 /* Hero Section */
 .hero {
@@ -205,48 +289,10 @@ main {
   font-size: 1.1rem;
   color: var(--color-dark-text);
   margin-bottom: var(--spacing-lg);
+  line-height: 1.8;
 }
 
-/* Button Styles */
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: var(--radius-lg);
-  font-weight: 600;
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary {
-  background: var(--color-primary-brown);
-  background: linear-gradient(135deg, var(--color-primary-brown) 0%, var(--color-soft-green) 100%);
-  color: var(--color-cream);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-/* Ripple Effect Styles */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(0);
-  animation: ripple-animation 0.6s ease-out;
-  pointer-events: none;
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-/* Section Styles */
+/* Section Title - Shared across pages */
 .section-title {
   text-align: center;
   font-size: 2.5rem;
@@ -268,7 +314,10 @@ main {
   margin: 0 auto;
 }
 
-/* Card Component */
+/* ========================================
+   CARD COMPONENT (Reusable)
+   ======================================== */
+
 .card {
   background-color: white;
   border-radius: var(--radius-lg);
@@ -303,6 +352,7 @@ main {
   color: var(--color-dark-text);
   margin-bottom: var(--spacing-sm);
   font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .card-price {
@@ -351,8 +401,10 @@ main {
   font-size: 0.95rem;
   line-height: 1.6;
 }
+/* ========================================
+   FOOTER COMPONENT
+   ======================================== */
 
-/* Footer Styles - Will be enhanced in Task 3 */
 .footer {
   background-color: var(--color-primary-brown);
   color: var(--color-cream);
@@ -375,6 +427,7 @@ main {
 .social-links a {
   color: var(--color-cream);
   transition: color var(--transition-fast);
+  padding: var(--spacing-xs);
 }
 
 .social-links a:hover {
@@ -392,55 +445,9 @@ main {
   opacity: 0.8;
 }
 
-/* Responsive Design - Mobile */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-  
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-primary-brown);
-    flex-direction: column;
-    padding: var(--spacing-md);
-    gap: var(--spacing-sm);
-    display: none;
-  }
-  
-  .nav-links.active {
-    display: flex;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .features-container {
-    flex-direction: column;
-  }
-}
-
-/* About Page Styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
+/* ========================================
+   ABOUT PAGE COMPONENTS
+   ======================================== */
 
 .about-hero {
   padding: var(--spacing-xl) var(--spacing-md);
@@ -539,7 +546,7 @@ main {
   line-height: 1.6;
 }
 
-/* Reveal Animation */
+/* Reveal Animation - Scroll-triggered fade-in */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -551,18 +558,10 @@ main {
   transform: translateY(0);
 }
 
-/* Responsive Design - About Page */
-@media (max-width: 768px) {
-  .values-grid {
-    flex-direction: column;
-  }
-  
-  .value-card {
-    flex: 1 1 100%;
-  }
-}
+/* ========================================
+   MENU PAGE COMPONENTS
+   ======================================== */
 
-/* Menu Page Styles */
 .menu-section {
   padding: var(--spacing-xl) var(--spacing-md);
   max-width: 1200px;
@@ -592,6 +591,7 @@ main {
   color: var(--color-dark-text);
   border: 2px solid var(--color-primary-brown);
   transition: all var(--transition-normal);
+  cursor: pointer;
 }
 
 .filter-btn:hover {
@@ -612,29 +612,10 @@ main {
   gap: var(--spacing-lg);
 }
 
-/* Responsive Design - Menu Page */
-@media (max-width: 1024px) {
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* ========================================
+   CONTACT PAGE COMPONENTS
+   ======================================== */
 
-@media (max-width: 768px) {
-  .menu-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .menu-filters {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .filter-btn {
-    width: 100%;
-  }
-}
-
-/* Contact Page Styles */
 .contact-section {
   padding: var(--spacing-xl) var(--spacing-md);
   background-color: var(--color-cream);
@@ -648,7 +629,7 @@ main {
   gap: var(--spacing-xl);
 }
 
-/* Contact Form Styles */
+/* Contact Form */
 .contact-form-wrapper h1 {
   color: var(--color-primary-brown);
   margin-bottom: var(--spacing-lg);
@@ -707,7 +688,7 @@ main {
   margin-top: var(--spacing-sm);
 }
 
-/* Contact Information Styles */
+/* Contact Information */
 .contact-info-wrapper h2 {
   color: var(--color-primary-brown);
   margin-bottom: var(--spacing-lg);
@@ -750,7 +731,7 @@ main {
   margin-bottom: 0;
 }
 
-/* Map Container Styles */
+/* Map Container */
 .map-container {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -763,10 +744,274 @@ main {
   border: 0;
 }
 
-/* Responsive Design - Contact Page */
-@media (max-width: 768px) {
+/* ========================================
+   RESPONSIVE DESIGN - COMPREHENSIVE MEDIA QUERIES
+   ======================================== */
+
+/* Desktop Breakpoint (> 1024px) - Default styles above */
+
+/* Tablet Breakpoint (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Typography adjustments */
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  /* Grid layouts - 2 columns */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .values-grid {
+    gap: var(--spacing-md);
+  }
+  
+  .value-card {
+    flex: 1 1 calc(50% - var(--spacing-md));
+  }
+  
+  /* Features container - 2 columns */
+  .features-container {
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  
+  .feature-card {
+    flex: 1 1 calc(50% - var(--spacing-md));
+    min-width: 250px;
+  }
+  
+  /* Contact page - maintain 2 columns on tablet */
+  .contact-container {
+    gap: var(--spacing-md);
+  }
+  
+  /* Spacing adjustments */
+  .hero {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .popular-items,
+  .why-choose-us,
+  .cafe-story,
+  .mission-beliefs,
+  .values-section,
+  .menu-section,
+  .contact-section {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* Mobile Breakpoint (< 768px) */
+@media (max-width: 767px) {
+  /* Navigation - Mobile menu */
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-primary-brown);
+    flex-direction: column;
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    padding: var(--spacing-sm);
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  /* Typography - Mobile sizes */
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  /* Single column layouts */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .features-container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .values-grid {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .value-card {
+    flex: 1 1 100%;
+  }
+  
   .contact-container {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
+  }
+  
+  /* Larger touch targets for mobile */
+  .btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  
+  .filter-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  
+  .menu-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+  
+  .filter-btn {
+    width: 100%;
+  }
+  
+  /* Form inputs - Larger touch targets */
+  .form-group input,
+  .form-group textarea {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+  }
+  
+  /* Spacing adjustments for mobile */
+  .hero {
+    padding: var(--spacing-lg) var(--spacing-sm);
+    min-height: 80vh;
+  }
+  
+  .popular-items,
+  .why-choose-us,
+  .cafe-story,
+  .mission-beliefs,
+  .values-section,
+  .menu-section,
+  .contact-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .nav-container,
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  /* Card adjustments */
+  .card-content {
+    padding: var(--spacing-sm);
+  }
+  
+  .contact-form,
+  .contact-info {
+    padding: var(--spacing-md);
+  }
+  
+  /* Social links - Larger touch targets */
+  .social-links a {
+    padding: var(--spacing-sm);
+    font-size: 1.5rem;
+  }
+}
+
+/* Extra Small Mobile (< 480px) */
+@media (max-width: 479px) {
+  /* Further typography reduction */
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.35rem;
+  }
+  
+  /* Tighter spacing on very small screens */
+  .popular-items,
+  .why-choose-us,
+  .cafe-story,
+  .mission-beliefs,
+  .values-section,
+  .menu-section,
+  .contact-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+  
+  .cards-grid,
+  .menu-grid,
+  .features-container,
+  .values-grid {
+    gap: var(--spacing-sm);
+  }
+  
+  /* Button adjustments */
+  .btn {
+    padding: 0.875rem 1.25rem;
+  }
+  
+  .filter-btn {
+    padding: 0.875rem 1.25rem;
   }
 }
