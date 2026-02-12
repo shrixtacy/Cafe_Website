@@ -4,6 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all features
   initNavigation();
+  initScrollReveal();
   
   console.log('Simple Café website loaded successfully');
 });
@@ -32,9 +33,29 @@ function initFormValidation() {
   // Implementation will be added in Task 9
 }
 
-// Scroll Reveal Controller - Will be implemented in Task 6
+// Scroll Reveal Controller - Animate elements when they enter viewport
 function initScrollReveal() {
-  // Implementation will be added in Task 6
+  const revealElements = document.querySelectorAll('.reveal');
+  
+  // Function to check and reveal elements
+  const revealOnScroll = () => {
+    revealElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      const revealPoint = 150;
+      
+      // Add 'active' class when element is within 150px of bottom of viewport
+      if (elementTop < windowHeight - revealPoint) {
+        element.classList.add('active');
+      }
+    });
+  };
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', revealOnScroll);
+  
+  // Initial check on page load
+  revealOnScroll();
 }
 
 // Button Ripple Effect Controller - Will be implemented in Task 10
