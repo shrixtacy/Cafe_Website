@@ -1,97 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Café - About</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Our Story | Bloom Brew Café</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <div class="logo">Simple Café</div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <div class="grain-overlay"></div>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo" style="color:var(--color-black)">Bloom Brew.</a>
+    <div class="mobile-toggle" style="color:var(--color-black)"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link" style="color:var(--color-black)">Home</a></li>
+      <li><a href="about.html" class="nav-link" style="color:var(--color-black)">Story</a></li>
+      <li><a href="menu.html" class="nav-link" style="color:var(--color-black)">Menu</a></li>
+      <li><a href="contact.html" class="nav-link" style="color:var(--color-black)">Visit</a></li>
+    </ul>
   </nav>
 
-  <main>
-    <section class="about-hero reveal">
-      <div class="container">
-        <h1>Our Story</h1>
-        <p>Welcome to Simple Café, where passion meets perfection in every cup.</p>
-      </div>
-    </section>
+  <!-- 1. Header -->
+  <header class="container" style="padding-top: 200px; padding-bottom: 2rem; text-align: center;">
+    <p class="uppercase text-gold reveal-text">Our Philosophy</p>
+    <h1 class="reveal-text" style="font-size: clamp(3rem, 7vw, 6rem);">Brewing with <br><span
+        style="font-style: italic; font-weight: 300;">Intention.</span></h1>
+    <p class="reveal-text" style="max-width: 600px; margin: 3rem auto; font-size: 1.2rem;">We believe a coffee shop
+      should be an extension of your living room—a place where ideas brew as slowly and richly as our signature roasts.
+    </p>
 
-    <section class="cafe-story reveal">
-      <div class="container">
-        <h2>How It All Began</h2>
-        <p>Simple Café was born from a simple dream: to create a warm, welcoming space where people could enjoy exceptional coffee and genuine connections. What started as a small neighborhood café has grown into a beloved community gathering place, but our commitment to quality and hospitality remains unchanged.</p>
-        <p>Every morning, we carefully select and roast our beans to bring out their unique flavors. Our baristas are trained artisans who take pride in crafting each drink with precision and care. But more than great coffee, we offer a place where you can slow down, savor the moment, and feel at home.</p>
-      </div>
-    </section>
+    <!-- Added Separator/Scroll Indicator -->
+    <div style="margin-top: 3rem; opacity: 1;">
+      <i class="fas fa-chevron-down"
+        style="font-size: 1.5rem; color: var(--color-gold); animation: bounce 2s infinite;"></i>
+    </div>
+  </header>
 
-    <section class="mission-beliefs reveal">
-      <div class="container">
-        <h2>Our Mission & Beliefs</h2>
-        <p>We believe that coffee is more than just a beverage—it's an experience, a ritual, and a way to bring people together. Our mission is to serve exceptional coffee while fostering a sense of community and connection.</p>
-        <p>We're committed to sustainability, sourcing our beans from ethical farms that prioritize environmental stewardship and fair labor practices. Every cup you enjoy supports a better future for coffee farmers and our planet.</p>
-      </div>
-    </section>
+  <!-- 2. Interactive Image -->
+  <div class="container reveal-img" style="margin-bottom: 8rem; margin-top: 2rem;">
+    <img src="assets/bloom_brew_hero_dark.png" alt="Coffee brewing"
+      style="width: 100%; height: 70vh; object-fit: cover; border-radius: 4px;">
+  </div>
 
-    <section class="values-section reveal">
-      <div class="container">
-        <h2>What We Value</h2>
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">☕</div>
-            <h3>Quality First</h3>
-            <p>We never compromise on the quality of our ingredients. From premium coffee beans to fresh, locally-sourced pastries, everything we serve meets our high standards.</p>
+  <!-- 3. Editorial Story Sections (Alternating) -->
+
+  <!-- Section 1 -->
+  <section class="container overlapping-grid">
+    <div class="text-block reveal-text">
+      <span class="text-gold uppercase" style="margin-bottom: 1rem; display:block;">Est. 2019</span>
+      <h2>The Beginning</h2>
+      <p>Founded in a small garage with a 5kg roaster and a dream. We rejected the fast-paced, grab-and-go culture in
+        favor of something more deliberate.</p>
+      <p>It started with a simple question: What if we treated coffee like wine? Considering terroir, process, and the
+        human hands behind every bean.</p>
+    </div>
+    <div class="image-block reveal-img">
+      <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=2671&auto=format&fit=crop"
+        alt="Coffee beans details">
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="container overlapping-grid" style="margin-top: 4rem;">
+    <div class="image-block reveal-img" style="order: 2;">
+      <!-- Mobile stacking order fix will be needed if we want image first on mobile, but default is fine -->
+      <img src="https://images.unsplash.com/photo-1511537632536-b7a4896840a4?q=80&w=2670&auto=format&fit=crop"
+        alt="Roasting Process">
+    </div>
+    <div class="text-block reveal-text" style="order: 1; padding-left: 0; padding-right: 4rem;">
+      <span class="text-gold uppercase" style="margin-bottom: 1rem; display:block;">2020 - Present</span>
+      <h2>Expansion & Community</h2>
+      <p>Despite the global pause, we expanded to our flagship roastery. It became a hub not just for coffee, but for
+        connection.</p>
+      <p>We launched the "Bloom Arts" initiative, transforming our walls into a gallery for local photographers and our
+        evenings into poetry slams.</p>
+    </div>
+  </section>
+
+  <!-- 4. Values (Minimal Grid) -->
+  <section class="container text-center" style="background-color: var(--color-white-soft); padding: 8rem 2rem;">
+    <h2 class="reveal-text">Core Values</h2>
+    <div class="menu-grid my-lg" style="grid-template-columns: repeat(3, 1fr); gap: 4rem;">
+      <div class="reveal-text">
+        <i class="fas fa-hand-holding-heart"
+          style="font-size: 2rem; color: var(--color-gold); margin-bottom: 2rem;"></i>
+        <h3>Craft</h3>
+        <p>We reject automation. Every shot pulled by hand.</p>
+      </div>
+      <div class="reveal-text" style="transition-delay: 0.2s;">
+        <i class="fas fa-users" style="font-size: 2rem; color: var(--color-gold); margin-bottom: 2rem;"></i>
+        <h3>Origins</h3>
+        <p>Direct trade partnerships with farmers we know by name.</p>
+      </div>
+      <div class="reveal-text" style="transition-delay: 0.4s;">
+        <i class="fas fa-globe-americas" style="font-size: 2rem; color: var(--color-gold); margin-bottom: 2rem;"></i>
+        <h3>Planet</h3>
+        <p>Zero-waste goals and solar-powered roasting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div class="footer-column">
+          <h4 style="font-family: var(--font-serif); font-size: 2rem; color: #fff; margin-bottom: 1rem;">Bloom Brew.
+          </h4>
+          <p>1234 Espresso Lane<br>Downtown District<br>New York, NY 10012</p>
+        </div>
+        <div class="footer-column" style="text-align: right;">
+          <div style="display: flex; gap: 2rem; justify-content: flex-end; margin-bottom: 2rem;">
+            <a href="#" class="footer-link">Instagram</a>
+            <a href="#" class="footer-link">Facebook</a>
+            <a href="#" class="footer-link">Twitter</a>
           </div>
-          <div class="value-card">
-            <div class="value-icon">🌱</div>
-            <h3>Sustainability</h3>
-            <p>We're dedicated to reducing our environmental impact through eco-friendly practices, from compostable cups to energy-efficient equipment.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">❤️</div>
-            <h3>Community</h3>
-            <p>Our café is a gathering place for neighbors, friends, and newcomers alike. We're proud to be a part of this vibrant community.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">✨</div>
-            <h3>Authenticity</h3>
-            <p>We stay true to our roots and values, creating genuine experiences and building lasting relationships with every customer who walks through our door.</p>
-          </div>
+          <p>&copy; 2024 Bloom Brew Café.</p>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="social-links">
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="Twitter">Twitter</a>
-      </div>
-      <p class="footer-slogan">Where every cup tells a story</p>
-      <p class="footer-copyright">&copy; 2024 Simple Café. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
 </body>
+
 </html>
