@@ -1,109 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Café - Home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Bloom Brew Café | Urban Coffee House</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <div class="logo">Simple Café</div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Grain Overlay for Texture -->
+  <div class="grain-overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar nav-light">
+    <a href="index.html" class="nav-logo">Bloom Brew.</a>
+
+    <div class="mobile-toggle">
+      <i class="fas fa-bars"></i>
     </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">Story</a></li>
+      <li><a href="menu.html" class="nav-link">Menu</a></li>
+      <li><a href="contact.html" class="nav-link">Visit</a></li>
+      <li><a href="contact.html" class="btn btn-gold" style="padding: 0.8rem 2rem;">Book Table</a></li>
+    </ul>
   </nav>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Welcome to Simple Café</h1>
-        <p class="hero-subtitle">Your cozy corner for great coffee</p>
-        <p class="hero-description">Experience the perfect blend of comfort and quality</p>
-        <a href="menu.html" class="btn btn-primary">View Menu</a>
+  <!-- 1. Hero Section -->
+  <header class="hero">
+    <img src="assets/bloom_brew_hero_dark.png" alt="Dark aesthetic coffee pour" class="hero-bg">
+    <div class="hero-content">
+      <p class="hero-quote reveal-text">"Where time slows down for a sip."</p>
+      <h1 class="reveal-text" style="transition-delay: 0.2s;">Essence of <br> <span class="text-gold">Urban Calm</span>
+      </h1>
+      <div class="reveal-text" style="transition-delay: 0.4s; margin-top: 3rem;">
+        <a href="menu.html" class="btn btn-outline" style="border-radius: 50px;">Discover Menu</a>
       </div>
-    </section>
+    </div>
 
-    <!-- Popular Items Section -->
-    <section class="popular-items">
-      <h2 class="section-title">Popular Items</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Classic Cappuccino</h3>
-            <p class="card-description">Rich espresso with velvety steamed milk and foam</p>
-            <span class="card-price">$4.50</span>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- 2. Welcome Story (Overlapping Grid) -->
+  <section class="container my-lg">
+    <div class="overlapping-grid">
+      <div class="image-block reveal-img">
+        <img src="assets/cafe_interior_cozy.png" alt="Cozy cafe interior" style="border-radius: 4px;">
+        <div
+          style="position: absolute; bottom: -20px; right: -20px; background: var(--color-black); color: white; padding: 1.5rem; max-width: 200px;">
+          <p style="color: white; font-size: 0.9rem; margin:0;">"Best Independent Cafe 2024" — City Guide</p>
+        </div>
+      </div>
+      <div class="text-block reveal-text" style="padding-left: 3rem;">
+        <p class="uppercase text-gold">Since 2019</p>
+        <h2>A Sanctuary in the <br> Heart of the City</h2>
+        <p>Bloom Brew began with a simple philosophy: coffee isn't just a caffeine fix; it's a ritual. Nestled in the
+          bustling downtown, we created a space where the noise fades away.</p>
+        <p>Inspired by the slow-living cafes of Kyoto and the grand coffee houses of Vienna, we blend tradition with
+          modern minimalism.</p>
+        <div style="margin-top: 3rem; font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-brown);">
+          Sarah & James <span
+            style="font-size: 0.8rem; letter-spacing: 1px; color: #999; margin-left: 1rem; font-family: var(--font-sans);">FOUNDERS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Featured Specials -->
+  <section style="background-color: #ede8df; padding-top: 6rem; padding-bottom: 6rem;">
+    <div class="container">
+      <div class="text-center reveal-text" style="margin-bottom: 4rem;">
+        <p class="uppercase">Curated Selection</p>
+        <h2>Weekly Highlights</h2>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Card 1 -->
+        <div class="menu-card reveal-text">
+          <img src="assets/coffee_special_cappuccino.png" alt="Signature Cappuccino">
+          <div style="padding: 1rem 0;">
+            <h3>Velvet Cappuccino</h3>
+            <p>Double shot espresso with micro-foam seamlessly blended.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+              <span style="font-weight: 600; color: var(--color-brown);">$5.50</span>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Avocado Toast</h3>
-            <p class="card-description">Fresh avocado on artisan sourdough with cherry tomatoes</p>
-            <span class="card-price">$8.00</span>
+
+        <!-- Card 2 -->
+        <div class="menu-card reveal-text" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=2626&auto=format&fit=crop"
+            alt="Almond Croissant">
+          <div style="padding: 1rem 0;">
+            <h3>Almond Croissant</h3>
+            <p>House-made flaky pastry filled with rich almond cream.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+              <span style="font-weight: 600; color: var(--color-brown);">$4.75</span>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Chocolate Croissant</h3>
-            <p class="card-description">Buttery, flaky pastry filled with rich dark chocolate</p>
-            <span class="card-price">$3.50</span>
+
+        <!-- Card 3 -->
+        <div class="menu-card reveal-text" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2680&auto=format&fit=crop"
+            alt="Buddha Bowl">
+          <div style="padding: 1rem 0;">
+            <h3>Harvest Bowl</h3>
+            <p>Quinoa base with roasted seasonal vegetables.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+              <span style="font-weight: 600; color: var(--color-brown);">$12.00</span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-      <h2 class="section-title">Why Choose Us</h2>
-      <div class="features-container">
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3 class="feature-title">Cozy Atmosphere</h3>
-          <p class="feature-description">Relax in our warm and inviting space, perfect for work or catching up with friends</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3 class="feature-title">Fresh Ingredients</h3>
-          <p class="feature-description">We source locally and use only the finest ingredients in everything we make</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"></div>
-          <h3 class="feature-title">Fast Service</h3>
-          <p class="feature-description">Quick and friendly service without compromising on quality</p>
+      <div class="text-center" style="margin-top: 4rem;">
+        <a href="menu.html" class="btn btn-primary">View Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Why Bloom Brew (Horizontal Scroll / Features) -->
+  <section class="container">
+    <div
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left;">
+      <div class="reveal-text">
+        <span style="font-size: 3rem; color: var(--color-gold); font-family: var(--font-serif);">01</span>
+        <h3>Fresh Roast</h3>
+        <p>Beans roasted in-house every 48 hours for peak flavor. We source only Grade 1 Arabica beans from Ethiopia and
+          Colombia.</p>
+      </div>
+      <div class="reveal-text" style="transition-delay: 0.1s;">
+        <span style="font-size: 3rem; color: var(--color-gold); font-family: var(--font-serif);">02</span>
+        <h3>Artisan Bakery</h3>
+        <p>Sourdough and pastries baked fresh every morning at 4am. No preservatives, just butter, flour, and patience.
+        </p>
+      </div>
+      <div class="reveal-text" style="transition-delay: 0.2s;">
+        <span style="font-size: 3rem; color: var(--color-gold); font-family: var(--font-serif);">03</span>
+        <h3>Organic</h3>
+        <p>Locally sourced ingredients from sustainable farms. Our milk comes from happy cows up the valley.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Horizontal Image Break -->
+  <div class="parallax-break"
+    style="height: 60vh; background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2574&auto=format&fit=crop'); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; display: flex; align-items: center; justify-content: center;">
+    <div
+      style="background: white; padding: 3rem 4rem; text-align: center; max-width: 600px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; z-index: 10;">
+      <h2 style="margin: 0; font-size: 2rem;">"The best espresso in the city."</h2>
+      <p style="margin-top: 1rem; color: #999; margin-bottom: 2rem;">- TIMES MAGAZINE</p>
+      <div style="width: 50px; height: 1px; background: var(--color-gold); margin: 0 auto 1.5rem auto;"></div>
+      <a href="contact.html" class="btn btn-outline"
+        style="color: var(--color-black); border-color: var(--color-black);">Visit Us Today</a>
+    </div>
+  </div>
+
+  <!-- 6. Experience Gallery Grid -->
+  <section class="container">
+    <div class="menu-grid" style="gap: 1.5rem;">
+      <div class="reveal-img"
+        style="position: relative; height: 500px; display: flex; align-items: flex-end; padding: 2rem; color: white;">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2670&auto=format&fit=crop"
+          style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 2; width: 100%;">
+          <h3>The Menu</h3>
+          <div style="height: 1px; background: white; margin: 1rem 0;"></div>
+          <a href="menu.html" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Browse</a>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="social-links">
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="Twitter">Twitter</a>
+      <div class="reveal-img"
+        style="position: relative; height: 500px; display: flex; align-items: flex-end; padding: 2rem; color: white; transition-delay: 0.1s;">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2647&auto=format&fit=crop"
+          style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 2; width: 100%;">
+          <h3>Reservations</h3>
+          <div style="height: 1px; background: white; margin: 1rem 0;"></div>
+          <a href="contact.html" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Book Now</a>
+        </div>
       </div>
-      <p class="footer-slogan">Where every cup tells a story</p>
-      <p class="footer-copyright">&copy; 2024 Simple Café. All rights reserved.</p>
+
+      <div class="reveal-img"
+        style="position: relative; height: 500px; display: flex; align-items: flex-end; padding: 2rem; color: white; transition-delay: 0.2s;">
+        <img src="https://images.unsplash.com/photo-1621257482337-b9ec6e8c71e9?q=80&w=1780&auto=format&fit=crop"
+          style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: relative; z-index: 2; width: 100%;">
+          <h3>Gift Cards</h3>
+          <div style="height: 1px; background: white; margin: 1rem 0;"></div>
+          <a href="#" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Purchase</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Newsletter -->
+  <section class="container" style="max-width: 800px; text-align: center; padding-top: 0;">
+    <div style="padding: 4rem; border: 1px solid #ddd;" class="reveal-text">
+      <h3 style="margin-bottom: 1rem;">Join the Club</h3>
+      <p style="margin-bottom: 2rem;">Get exclusive invites to tastings and 10% off your first online order.</p>
+      <form style="display: flex; gap: 0;">
+        <input type="email" placeholder="Your email address"
+          style="flex: 1; border-right: none; margin-bottom: 0; background: white;">
+        <button type="submit" class="btn btn-primary" style="padding: 1rem 2rem;">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div class="footer-column">
+          <h4 style="font-family: var(--font-serif); font-size: 2rem; color: #fff; margin-bottom: 1rem;">Bloom Brew.
+          </h4>
+          <p>1234 Espresso Lane<br>Downtown District<br>New York, NY 10012</p>
+        </div>
+        <div class="footer-column" style="text-align: right;">
+          <div style="display: flex; gap: 2rem; justify-content: flex-end; margin-bottom: 2rem;">
+            <a href="#" class="footer-link">Instagram</a>
+            <a href="#" class="footer-link">Facebook</a>
+            <a href="#" class="footer-link">Twitter</a>
+          </div>
+          <p>&copy; 2024 Bloom Brew Café.</p>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
 </body>
+
 </html>

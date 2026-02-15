@@ -1,143 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Café - Menu</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Menus | Bloom Brew Café</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      cursor: none;
+      /* Custom cursor */
+      padding-bottom: 0.5rem;
+      color: var(--color-gray);
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      color: var(--color-black);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-gold);
+    }
+
+    /* LIST VIEW FOR COFFEE */
+    .menu-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .menu-list-item {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .menu-list-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.2rem;
+      background: var(--color-cream);
+      padding-right: 10px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .dotted-line {
+      flex: 1;
+      border-bottom: 1px dotted #ccc;
+      margin: 0 10px;
+      position: relative;
+      top: -5px;
+    }
+
+    .price {
+      font-weight: 600;
+      font-family: var(--font-sans);
+      background: var(--color-cream);
+      padding-left: 10px;
+      z-index: 1;
+      position: relative;
+    }
+  </style>
 </head>
+
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <div class="logo">Simple Café</div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div class="grain-overlay"></div>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo" style="color:var(--color-black)">Bloom Brew.</a>
+    <div class="mobile-toggle" style="color:var(--color-black)"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link" style="color:var(--color-black)">Home</a></li>
+      <li><a href="about.html" class="nav-link" style="color:var(--color-black)">Story</a></li>
+      <li><a href="menu.html" class="nav-link" style="color:var(--color-black)">Menu</a></li>
+      <li><a href="contact.html" class="nav-link" style="color:var(--color-black)">Visit</a></li>
+    </ul>
   </nav>
 
-  <main>
-    <section class="menu-section">
-      <h1>Our Menu</h1>
-      
-      <div class="menu-filters">
-        <button class="filter-btn active" data-category="all">All</button>
-        <button class="filter-btn" data-category="breakfast">Breakfast</button>
-        <button class="filter-btn" data-category="lunch">Lunch</button>
-        <button class="filter-btn" data-category="drinks-desserts">Drinks & Desserts</button>
+  <header class="container" style="padding-top: 200px; text-align: center;">
+    <h1 class="reveal-text">Seasonal Menu</h1>
+    <p class="reveal-text">Locally sourced, crafted with love.</p>
+  </header>
+
+  <section class="container" style="min-height: 80vh;">
+    <!-- Tabs -->
+    <div class="tabs reveal-text">
+      <button class="tab-btn active" data-filter="all">All</button>
+      <button class="tab-btn" data-filter="coffee">Coffee</button>
+      <button class="tab-btn" data-filter="breakfast">Breakfast</button>
+      <button class="tab-btn" data-filter="lunch">Lunch</button>
+    </div>
+
+    <!-- COFFEE (List View) -->
+    <div class="menu-item link-group" data-category="coffee" style="margin-bottom: 4rem;">
+      <div class="text-center" style="margin-bottom: 2rem;">
+        <h3 class="text-gold uppercase">Espresso Bar</h3>
+      </div>
+      <div class="menu-list">
+        <div class="menu-list-item reveal-text">
+          <div>
+            <h3>Cappuccino</h3>
+            <p style="font-size: 0.9rem; margin:0;">Double shot, micro-foam.</p>
+          </div>
+          <div class="dotted-line"></div>
+          <span class="price">$5.00</span>
+        </div>
+        <div class="menu-list-item reveal-text">
+          <div>
+            <h3>Flat White</h3>
+            <p style="font-size: 0.9rem; margin:0;">Thin foam, rich flavor.</p>
+          </div>
+          <div class="dotted-line"></div>
+          <span class="price">$5.25</span>
+        </div>
+        <div class="menu-list-item reveal-text">
+          <div>
+            <h3>Rose Latte</h3>
+            <p style="font-size: 0.9rem; margin:0;">House syrup, rose petals.</p>
+          </div>
+          <div class="dotted-line"></div>
+          <span class="price">$6.50</span>
+        </div>
+        <div class="menu-list-item reveal-text">
+          <div>
+            <h3>Cold Brew</h3>
+            <p style="font-size: 0.9rem; margin:0;">Steeped 24hrs, citrus notes.</p>
+          </div>
+          <div class="dotted-line"></div>
+          <span class="price">$5.50</span>
+        </div>
       </div>
 
-      <div class="menu-grid" id="menuGrid">
-        <!-- Breakfast Items -->
-        <div class="menu-item card" data-category="breakfast">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Classic Pancakes</h3>
-            <p class="card-description">Fluffy pancakes served with maple syrup and fresh berries</p>
-            <span class="card-price">$8.99</span>
-          </div>
-        </div>
-
-        <div class="menu-item card" data-category="breakfast">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Avocado Toast</h3>
-            <p class="card-description">Toasted sourdough with smashed avocado, poached egg, and chili flakes</p>
-            <span class="card-price">$10.99</span>
-          </div>
-        </div>
-
-        <div class="menu-item card" data-category="breakfast">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Breakfast Burrito</h3>
-            <p class="card-description">Scrambled eggs, cheese, bacon, and salsa wrapped in a warm tortilla</p>
-            <span class="card-price">$9.99</span>
-          </div>
-        </div>
-
-        <!-- Lunch Items -->
-        <div class="menu-item card" data-category="lunch">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Grilled Chicken Sandwich</h3>
-            <p class="card-description">Tender grilled chicken with lettuce, tomato, and special sauce</p>
-            <span class="card-price">$12.99</span>
-          </div>
-        </div>
-
-        <div class="menu-item card" data-category="lunch">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Caesar Salad</h3>
-            <p class="card-description">Crisp romaine lettuce with parmesan, croutons, and Caesar dressing</p>
-            <span class="card-price">$9.99</span>
-          </div>
-        </div>
-
-        <div class="menu-item card" data-category="lunch">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Veggie Wrap</h3>
-            <p class="card-description">Fresh vegetables, hummus, and feta cheese in a whole wheat wrap</p>
-            <span class="card-price">$10.99</span>
-          </div>
-        </div>
-
-        <!-- Drinks & Desserts Items -->
-        <div class="menu-item card" data-category="drinks-desserts">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Cappuccino</h3>
-            <p class="card-description">Rich espresso with steamed milk and a layer of foam</p>
-            <span class="card-price">$4.99</span>
-          </div>
-        </div>
-
-        <div class="menu-item card" data-category="drinks-desserts">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Chocolate Cake</h3>
-            <p class="card-description">Decadent chocolate cake with rich frosting and chocolate shavings</p>
-            <span class="card-price">$6.99</span>
-          </div>
-        </div>
-
-        <div class="menu-item card" data-category="drinks-desserts">
-          <div class="card-image"></div>
-          <div class="card-content">
-            <h3 class="card-title">Fresh Lemonade</h3>
-            <p class="card-description">Refreshing homemade lemonade with a hint of mint</p>
-            <span class="card-price">$3.99</span>
-          </div>
+      <!-- Added Content to fill blank space -->
+      <div class="text-center"
+        style="margin-top: 3rem; padding: 2rem; background: var(--color-white-soft); border: 1px dotted #ccc; opacity: 1;">
+        <h4
+          style="font-family: var(--font-sans); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 1rem;">
+          Seasonal Add-ons</h4>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; color: var(--color-gray);">
+          <span>+ Oat Milk ($0.75)</span>
+          <span>+ Vanilla Bean Syrup ($0.50)</span>
+          <span>+ Extra Shot ($1.00)</span>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="social-links">
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="Twitter">Twitter</a>
+    <!-- FOOD (Grid View) -->
+    <div class="menu-grid">
+
+      <!-- Breakfast -->
+      <div class="menu-card menu-item reveal-img" data-category="breakfast">
+        <img src="https://images.unsplash.com/photo-1525351484164-32fd63819524?q=80&w=2574&auto=format&fit=crop"
+          alt="Avocado Toast">
+        <div style="display:flex; justify-content:space-between;">
+          <h3>Avo Toast</h3>
+          <span class="text-gold">$12.00</span>
+        </div>
+        <p>Sourdough, poached egg, chili flakes, radish.</p>
       </div>
-      <p class="footer-slogan">Where every cup tells a story</p>
-      <p class="footer-copyright">&copy; 2024 Simple Café. All rights reserved.</p>
+
+      <div class="menu-card menu-item reveal-img" data-category="breakfast">
+        <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?q=80&w=2574&auto=format&fit=crop"
+          alt="Granola">
+        <div style="display:flex; justify-content:space-between;">
+          <h3>House Granola</h3>
+          <span class="text-gold">$9.00</span>
+        </div>
+        <p>Greek yogurt, seasonal berries, honey, nuts.</p>
+      </div>
+
+      <!-- Lunch -->
+      <div class="menu-card menu-item reveal-img" data-category="lunch">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2680&auto=format&fit=crop"
+          alt="Bowl">
+        <div style="display:flex; justify-content:space-between;">
+          <h3>Harvest Bowl</h3>
+          <span class="text-gold">$14.00</span>
+        </div>
+        <p>Quinoa, roasted sweet potato, kale, tahini dressing.</p>
+      </div>
+
+      <div class="menu-card menu-item reveal-img" data-category="lunch">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2581&auto=format&fit=crop"
+          alt="Sandwich">
+        <div style="display:flex; justify-content:space-between;">
+          <h3>Pesto Panini</h3>
+          <span class="text-gold">$11.00</span>
+        </div>
+        <p>Mozzarella, tomato, basil pesto, ciabatta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div class="footer-column">
+          <h4 style="font-family: var(--font-serif); font-size: 2rem; color: #fff; margin-bottom: 1rem;">Bloom Brew.
+          </h4>
+          <p>1234 Espresso Lane<br>Downtown District<br>New York, NY 10012</p>
+        </div>
+        <div class="footer-column" style="text-align: right;">
+          <div style="display: flex; gap: 2rem; justify-content: flex-end; margin-bottom: 2rem;">
+            <a href="#" class="footer-link">Instagram</a>
+            <a href="#" class="footer-link">Facebook</a>
+            <a href="#" class="footer-link">Twitter</a>
+          </div>
+          <p>&copy; 2024 Bloom Brew Café.</p>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
 </body>
+
 </html>
